@@ -1,7 +1,6 @@
 package com.sinut.movies.movie;
 
 import lombok.RequiredArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +14,9 @@ public class MovieService {
     public List<Movie> allMovies() {
         return movieRepository.findAll();
     }
-    
-    public Optional<Movie> getMovieById(ObjectId id) {
-        return movieRepository.findById(id);
+
+    public Optional<Movie> getMovieById(String id) {
+        return movieRepository.findMovieByImdbId(id);
     }
+
 }

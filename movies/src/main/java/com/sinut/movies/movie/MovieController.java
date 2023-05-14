@@ -1,7 +1,6 @@
 package com.sinut.movies.movie;
 
 import lombok.RequiredArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +22,8 @@ public class MovieController {
         return ResponseEntity.ok(movieService.allMovies());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Movie>> getMovieById(@PathVariable ObjectId id) {
-        return ResponseEntity.ok(movieService.getMovieById(id));
+    @GetMapping("/{imdbId}")
+    public ResponseEntity<Optional<Movie>> getMovieById(@PathVariable String imdbId) {
+        return ResponseEntity.ok(movieService.getMovieById(imdbId));
     }
 }
