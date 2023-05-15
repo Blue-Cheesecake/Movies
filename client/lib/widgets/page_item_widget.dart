@@ -18,6 +18,8 @@ class PageItemWidget extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
           color: route == currentPageProvider.currentRoute
               ? Colors.white
               : AppColor.lightGrey,
