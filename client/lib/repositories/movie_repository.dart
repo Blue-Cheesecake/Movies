@@ -8,6 +8,8 @@ class MovieRepository {
     final response =
         await http.get(Uri.parse("http://localhost:8080/api/v1/movies"));
     List decoded = json.decode(response.body);
-    return decoded.map((e) => MovieModel.fromJson(e)).toList();
+    List<MovieModel> mapped =
+        decoded.map((e) => MovieModel.fromJson(e)).toList();
+    return mapped;
   }
 }

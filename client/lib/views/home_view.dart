@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:client/core/color/app_color.dart';
+import 'package:client/models/movie_model.dart';
 import 'package:client/services/movie_service.dart';
 import 'package:client/widgets/drawer_widget.dart';
 import 'package:client/widgets/nav_bar_widget.dart';
@@ -23,7 +27,18 @@ class HomeView extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: AppColor.darkGrey,
+              ),
+            );
+          }
+
+          log("[HomeView]: HasError ${snapshot.hasData}");
+          List<MovieModel>? movieModels = snapshot.data;
+
+          if (movieModels == null) {
+            return const Center(
+              child: Text("Null Data"),
             );
           }
 

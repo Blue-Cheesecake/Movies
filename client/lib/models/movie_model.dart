@@ -31,21 +31,20 @@ class MovieModel {
   String toRawJson() => json.encode(toJson());
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
-        idModel: IdModel.fromJson(json["IdModel"]),
-        imdbIdModel: json["imdbIdModel"],
+        idModel: IdModel.fromJson(json["id"]),
+        imdbIdModel: json["imdbId"],
         title: json["title"],
         releaseDate: DateTime.parse(json["releaseDate"]),
         trailerLink: json["trailerLink"],
         poster: json["poster"],
         genres: List<String>.from(json["genres"].map((x) => x)),
         backdrops: List<String>.from(json["backdrops"].map((x) => x)),
-        reviewsIdModel:
-            List<dynamic>.from(json["reviewsIdModel"].map((x) => x)),
+        reviewsIdModel: List<dynamic>.from(json["reviewsId"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
-        "IdModel": idModel.toJson(),
-        "imdbIdModel": imdbIdModel,
+        "id": idModel.toJson(),
+        "imdbId": imdbIdModel,
         "title": title,
         "releaseDate":
             "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
@@ -53,6 +52,6 @@ class MovieModel {
         "poster": poster,
         "genres": List<dynamic>.from(genres.map((x) => x)),
         "backdrops": List<dynamic>.from(backdrops.map((x) => x)),
-        "reviewsIdModel": List<dynamic>.from(reviewsIdModel.map((x) => x)),
+        "reviewsId": List<dynamic>.from(reviewsIdModel.map((x) => x)),
       };
 }
