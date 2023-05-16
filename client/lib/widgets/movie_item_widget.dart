@@ -18,7 +18,9 @@ class MovieItemWidget extends StatelessWidget {
       constraints: const BoxConstraints.expand(),
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: NetworkImage(movieModel.backdrops[0]), fit: BoxFit.cover),
+          image: NetworkImage(movieModel.backdrops[0]),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

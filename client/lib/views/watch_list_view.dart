@@ -1,8 +1,10 @@
 import 'package:client/models/movie_model.dart';
 import 'package:client/providers/watch_list_provider.dart';
 import 'package:client/widgets/drawer_widget.dart';
+import 'package:client/widgets/movie_item_widget.dart';
 import 'package:client/widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 class WatchListView extends StatelessWidget {
@@ -29,6 +31,12 @@ class WatchListView extends StatelessWidget {
             child: ListTile(
               onTap: () {
                 // show details of movie like home
+                showCupertinoModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return MovieItemWidget(movieModel: movie);
+                  },
+                );
               },
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(2),
