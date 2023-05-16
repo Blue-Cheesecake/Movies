@@ -1,4 +1,5 @@
 import 'package:client/models/movie_model.dart';
+import 'package:client/utils/video_util.dart';
 import 'package:client/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -50,7 +51,9 @@ class MovieItemWidget extends StatelessWidget {
               showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return const VideoPlayerWidget();
+                  return VideoPlayerWidget(
+                    youtubeId: VideoUtil.extractVideoId(movieModel.trailerLink),
+                  );
                 },
               );
             },
