@@ -50,23 +50,34 @@ class HomeView extends StatelessWidget {
                   },
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox.shrink(),
-                    const SizedBox.shrink(),
-                    const SizedBox.shrink(),
-                    const SizedBox.shrink(),
-                    const SizedBox.shrink(),
-                    Center(
-                      child: SmoothPageIndicator(
-                        controller: pageController,
-                        count: movieModels.length,
-                        effect: const WormEffect(
-                          activeDotColor: AppColor.darkGrey,
-                          dotColor: AppColor.lightGrey,
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: Center(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black,
+                                blurRadius: 30,
+                                spreadRadius: 110,
+                                offset: Offset(0, 40),
+                              )
+                            ],
+                          ),
+                          child: SmoothPageIndicator(
+                            controller: pageController,
+                            count: movieModels.length,
+                            effect: const WormEffect(
+                              activeDotColor: AppColor.darkGrey,
+                              dotColor: AppColor.lightGrey,
+                            ),
+                          ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 )
               ],
