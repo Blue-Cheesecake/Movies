@@ -4,7 +4,7 @@ import 'package:client/models/id_model.dart';
 
 class MovieModel {
   IdModel idModel;
-  String imdbIdModel;
+  String imdbId;
   String title;
   DateTime releaseDate;
   String trailerLink;
@@ -15,7 +15,7 @@ class MovieModel {
 
   MovieModel({
     required this.idModel,
-    required this.imdbIdModel,
+    required this.imdbId,
     required this.title,
     required this.releaseDate,
     required this.trailerLink,
@@ -32,7 +32,7 @@ class MovieModel {
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
         idModel: IdModel.fromJson(json["id"]),
-        imdbIdModel: json["imdbId"],
+        imdbId: json["imdbId"],
         title: json["title"],
         releaseDate: DateTime.parse(json["releaseDate"]),
         trailerLink: json["trailerLink"],
@@ -44,7 +44,7 @@ class MovieModel {
 
   Map<String, dynamic> toJson() => {
         "id": idModel.toJson(),
-        "imdbId": imdbIdModel,
+        "imdbId": imdbId,
         "title": title,
         "releaseDate":
             "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
