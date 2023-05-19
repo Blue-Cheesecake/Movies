@@ -19,4 +19,7 @@ public class MovieService {
         return movieRepository.findMovieByImdbId(id);
     }
 
+    public void deleteMovieById(String id) {
+        movieRepository.deleteMovieByImdbId(id);
+    }
 }
