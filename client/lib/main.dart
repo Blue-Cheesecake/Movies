@@ -4,8 +4,6 @@ import 'package:client/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// TODO: Refactor provider using riverpod
-
 void main(List<String> args) {
   runApp(
     const ProviderScope(
