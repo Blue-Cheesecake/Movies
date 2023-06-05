@@ -3,17 +3,17 @@ import 'package:client/providers/watch_list_provider.dart';
 import 'package:client/utils/video_util.dart';
 import 'package:client/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:provider/provider.dart';
 
-class MovieItemWidget extends StatelessWidget {
+class MovieItemWidget extends ConsumerWidget {
   const MovieItemWidget({Key? key, required this.movieModel}) : super(key: key);
 
   final MovieModel movieModel;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: BoxDecoration(
@@ -40,11 +40,11 @@ class MovieItemWidget extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  WatchListProvider watchListProvider =
-                      Provider.of<WatchListProvider>(context, listen: false);
+                  final WatchListNotifier notifier =
+                      ref.watch(watchListProvider.notifier);
 
-                  if (!watchListProvider.isMovieAdded(movieModel.imdbId)) {
-                    watchListProvider.addMovie(movieModel);
+                  if (!notifier.isMovieAdded(movieModel.imdbId)) {
+                    notifier.addMovie(movieModel);
                     Fluttertoast.showToast(
                       msg: "Successfully Added",
                       toastLength: Toast.LENGTH_SHORT,

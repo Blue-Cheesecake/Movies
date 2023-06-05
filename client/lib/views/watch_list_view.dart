@@ -4,16 +4,17 @@ import 'package:client/widgets/drawer_widget.dart';
 import 'package:client/widgets/movie_item_widget.dart';
 import 'package:client/widgets/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:provider/provider.dart';
 
-class WatchListView extends StatelessWidget {
+class WatchListView extends ConsumerWidget {
   const WatchListView({Key? key}) : super(key: key);
   static const String routeName = "/watch-list";
 
   @override
-  Widget build(BuildContext context) {
-    WatchListProvider provider = Provider.of<WatchListProvider>(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<MovieModel> watchList = ref.watch(watchListProvider);
+
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: const PreferredSize(
@@ -22,9 +23,9 @@ class WatchListView extends StatelessWidget {
       ),
       body: ListView.builder(
         shrinkWrap: true,
-        itemCount: provider.watchList.length,
+        itemCount: watchList.length,
         itemBuilder: (context, index) {
-          MovieModel movie = provider.watchList[index];
+          MovieModel movie = watchList[index];
 
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -48,9 +49,9 @@ class WatchListView extends StatelessWidget {
               title: Text(movie.title),
               trailing: IconButton(
                 onPressed: () {
-                  WatchListProvider watchListProvider =
-                      Provider.of<WatchListProvider>(context, listen: false);
-                  watchListProvider.removeMovieByImdbId(movie.imdbId);
+                  ref
+                      .read(watchListProvider.notifier)
+                      .removeMovieByImdbId(movie.imdbId);
                 },
                 icon: const Icon(Icons.delete_forever_rounded),
                 color: Colors.red,
