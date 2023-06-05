@@ -1,11 +1,13 @@
 import 'package:client/core/color/app_color.dart';
+import 'package:client/datasources/movie_remote_datasource.dart';
 import 'package:client/models/movie_model.dart';
-import 'package:client/services/movie_service.dart';
+import 'package:client/repositories/movie_repository_impl.dart';
+import 'package:client/use_cases/get_movie_use_case.dart';
 import 'package:client/widgets/drawer_widget.dart';
 import 'package:client/widgets/movie_item_widget.dart';
 import 'package:client/widgets/nav_bar_widget.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeView extends StatelessWidget {
@@ -14,8 +16,12 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MovieService movieService =
-        Provider.of<MovieService>(context, listen: false);
+    final GetMovieUseCase getMovieUseCase = GetMovieUseCase(
+      repository: MovieRepository(
+        remoteDataSource: MovieRemoteDataSource(Dio()),
+      ),
+    );
+
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: const PreferredSize(
@@ -24,7 +30,7 @@ class HomeView extends StatelessWidget {
       ),
       body: Center(
         child: FutureBuilder(
-          future: movieService.getAllMovie(),
+          future: getMovieUseCase.getMovies(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator(
