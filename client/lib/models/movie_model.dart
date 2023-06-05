@@ -1,57 +1,23 @@
-import 'dart:convert';
-
 import 'package:client/models/id_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class MovieModel {
-  IdModel idModel;
-  String imdbId;
-  String title;
-  DateTime releaseDate;
-  String trailerLink;
-  String poster;
-  List<String> genres;
-  List<String> backdrops;
-  List<dynamic> reviewsIdModel;
+part 'movie_model.freezed.dart';
+part 'movie_model.g.dart';
 
-  MovieModel({
-    required this.idModel,
-    required this.imdbId,
-    required this.title,
-    required this.releaseDate,
-    required this.trailerLink,
-    required this.poster,
-    required this.genres,
-    required this.backdrops,
-    required this.reviewsIdModel,
-  });
+@freezed
+class MovieModel with _$MovieModel {
+  const factory MovieModel({
+    required final IdModel id,
+    required final String imdbId,
+    required final String title,
+    required final DateTime releaseDate,
+    required final String trailerLink,
+    required final String poster,
+    required final List<String> genres,
+    required final List<String> backdrops,
+    required final List<String> reviewsId,
+  }) = _MovieModel;
 
-  factory MovieModel.fromRawJson(String str) =>
-      MovieModel.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
-        idModel: IdModel.fromJson(json["id"]),
-        imdbId: json["imdbId"],
-        title: json["title"],
-        releaseDate: DateTime.parse(json["releaseDate"]),
-        trailerLink: json["trailerLink"],
-        poster: json["poster"],
-        genres: List<String>.from(json["genres"].map((x) => x)),
-        backdrops: List<String>.from(json["backdrops"].map((x) => x)),
-        reviewsIdModel: List<dynamic>.from(json["reviewsId"].map((x) => x)),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": idModel.toJson(),
-        "imdbId": imdbId,
-        "title": title,
-        "releaseDate":
-            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
-        "trailerLink": trailerLink,
-        "poster": poster,
-        "genres": List<dynamic>.from(genres.map((x) => x)),
-        "backdrops": List<dynamic>.from(backdrops.map((x) => x)),
-        "reviewsId": List<dynamic>.from(reviewsIdModel.map((x) => x)),
-      };
+  factory MovieModel.fromJson(Map<String, dynamic> json) =>
+      _$MovieModelFromJson(json);
 }

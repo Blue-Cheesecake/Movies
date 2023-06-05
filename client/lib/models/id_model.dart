@@ -1,25 +1,15 @@
-import 'dart:convert';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class IdModel {
-  int timestamp;
-  DateTime date;
+part 'id_model.freezed.dart';
+part 'id_model.g.dart';
 
-  IdModel({
-    required this.timestamp,
-    required this.date,
-  });
+@freezed
+class IdModel with _$IdModel {
+  const factory IdModel({
+    required final int timestamp,
+    required final DateTime date,
+  }) = _IdModel;
 
-  factory IdModel.fromRawJson(String str) => IdModel.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory IdModel.fromJson(Map<String, dynamic> json) => IdModel(
-        timestamp: json["timestamp"],
-        date: DateTime.parse(json["date"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "timestamp": timestamp,
-        "date": date.toIso8601String(),
-      };
+  factory IdModel.fromJson(Map<String, Object?> json) =>
+      _$IdModelFromJson(json);
 }

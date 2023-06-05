@@ -8,6 +8,9 @@ import 'package:client/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// TODO: Refactor service using retrofit
+// TODO: Refactor provider using riverpod
+
 void main(List<String> args) {
   runApp(const Main());
 }
