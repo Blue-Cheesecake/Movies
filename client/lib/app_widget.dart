@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'config/theme/theme.dart';
 import 'src/core/router/router.dart';
-import 'src/features/movies/views/home_view.dart';
+import 'src/features/movies/page/page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);

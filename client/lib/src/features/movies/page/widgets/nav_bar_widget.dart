@@ -1,5 +1,6 @@
-import 'package:client/core/color/app_color.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../config/theme/theme.dart';
 
 class NavBarWidget extends StatelessWidget {
   const NavBarWidget({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class NavBarWidget extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      backgroundColor: AppColor.darkGrey,
+      backgroundColor: DesignSystem.g0,
     );
   }
 }
