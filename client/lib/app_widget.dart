@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'config/theme/theme.dart';
-import 'src/core/router/app_router.dart';
+import 'src/core/router/router.dart';
 import 'src/features/movies/views/home_view.dart';
 
 class AppWidget extends StatelessWidget {
