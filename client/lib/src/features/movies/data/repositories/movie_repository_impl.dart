@@ -1,6 +1,6 @@
-import 'package:client/datasources/movie_remote_datasource.dart';
-import 'package:client/models/movie_model.dart';
-import 'package:client/repositories/imovie_repository.dart';
+import '../../domain/irepositories/irepositories.dart';
+import '../datasources/datasources.dart';
+import '../models/models.dart';
 
 class MovieRepository implements IMovieRepository {
   final MovieRemoteDataSource remoteDataSource;
@@ -8,7 +8,7 @@ class MovieRepository implements IMovieRepository {
   MovieRepository({required this.remoteDataSource});
 
   @override
-  Future<List<MovieModel>> fetchAllMovie() async {
-    return await remoteDataSource.getMovies();
+  Future<List<MovieModel>> fetchAllMovie() {
+    return remoteDataSource.getMovies();
   }
 }

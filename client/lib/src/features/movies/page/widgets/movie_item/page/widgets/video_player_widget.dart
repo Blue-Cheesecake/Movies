@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayerWidget extends StatelessWidget {
-  const VideoPlayerWidget({Key? key, required this.youtubeId})
-      : super(key: key);
+  const VideoPlayerWidget({Key? key, required this.youtubeId}) : super(key: key);
 
   final String youtubeId;
 

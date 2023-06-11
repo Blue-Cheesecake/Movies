@@ -1,14 +1,15 @@
-import 'package:client/core/color/app_color.dart';
-import 'package:client/datasources/movie_remote_datasource.dart';
-import 'package:client/models/movie_model.dart';
-import 'package:client/repositories/movie_repository_impl.dart';
-import 'package:client/use_cases/get_movie_use_case.dart';
-import 'package:client/widgets/drawer_widget.dart';
-import 'package:client/widgets/movie_item_widget.dart';
-import 'package:client/widgets/nav_bar_widget.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../../config/theme/theme.dart';
+import '../data/datasources/datasources.dart';
+import '../data/models/models.dart';
+import '../data/repositories/repositories.dart';
+import '../domain/usecases/usecases.dart';
+import 'widgets/drawer/page/page.dart';
+import 'widgets/movie_item/page/page.dart';
+import 'widgets/navbar/page/page.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class HomeView extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator(
-                color: AppColor.darkGrey,
+                color: DesignSystem.g0,
               );
             }
 
@@ -77,8 +78,8 @@ class HomeView extends StatelessWidget {
                             controller: pageController,
                             count: movieModels.length,
                             effect: const WormEffect(
-                              activeDotColor: AppColor.darkGrey,
-                              dotColor: AppColor.lightGrey,
+                              activeDotColor: DesignSystem.g0,
+                              dotColor: DesignSystem.g1,
                             ),
                           ),
                         ),

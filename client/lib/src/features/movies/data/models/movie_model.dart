@@ -1,5 +1,6 @@
-import 'package:client/models/id_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'models.dart';
 
 part 'movie_model.freezed.dart';
 part 'movie_model.g.dart';
@@ -18,6 +19,5 @@ class MovieModel with _$MovieModel {
     required final List<String> reviewsId,
   }) = _MovieModel;
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) =>
-      _$MovieModelFromJson(json);
+  factory MovieModel.fromJson(Map<String, dynamic> json) => _$MovieModelFromJson(json);
 }

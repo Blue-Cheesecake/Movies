@@ -1,4 +1,4 @@
-import 'package:client/models/movie_model.dart';
+import '../../data/models/models.dart';
 
 abstract class IMovieRepository {
   Future<List<MovieModel>> fetchAllMovie();

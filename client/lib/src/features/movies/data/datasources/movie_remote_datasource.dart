@@ -1,6 +1,7 @@
-import 'package:client/models/movie_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../models/models.dart';
 
 part 'movie_remote_datasource.g.dart';
 

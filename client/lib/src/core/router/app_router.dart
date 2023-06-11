@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../features/movies/views/home_view.dart';
-import '../../features/movies/views/watch_list_view.dart';
+import '../../features/movies/page/page.dart';
+import '../../features/movies/page/widgets/watch_list/page/page.dart';
 
 class AppRouter {
   AppRouter._();

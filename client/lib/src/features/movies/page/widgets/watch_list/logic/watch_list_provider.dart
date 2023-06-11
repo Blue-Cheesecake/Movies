@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../data/models/models.dart';
+
 final watchListProvider = StateNotifierProvider<WatchListNotifier, List<MovieModel>>((ref) {
   return WatchListNotifier();
 });

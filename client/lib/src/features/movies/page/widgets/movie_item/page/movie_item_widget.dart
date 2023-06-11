@@ -1,11 +1,12 @@
-import 'package:client/models/movie_model.dart';
-import 'package:client/providers/watch_list_provider.dart';
-import 'package:client/utils/video_util.dart';
-import 'package:client/widgets/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+import '../../../../../../shared/utils/utils.dart';
+import '../../../../data/models/models.dart';
+import '../../watch_list/logic/logic.dart';
+import 'widgets/widgets.dart';
 
 class MovieItemWidget extends ConsumerWidget {
   const MovieItemWidget({Key? key, required this.movieModel}) : super(key: key);
@@ -40,8 +41,7 @@ class MovieItemWidget extends ConsumerWidget {
                   ),
                 ),
                 onPressed: () {
-                  final WatchListNotifier notifier =
-                      ref.watch(watchListProvider.notifier);
+                  final WatchListNotifier notifier = ref.watch(watchListProvider.notifier);
 
                   if (!notifier.isMovieAdded(movieModel.imdbId)) {
                     notifier.addMovie(movieModel);
