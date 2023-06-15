@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../config/theme/theme.dart';
-import '../data/datasources/datasources.dart';
-import '../data/models/models.dart';
-import '../data/repositories/repositories.dart';
-import '../domain/usecases/usecases.dart';
+
+import '../data/data.dart';
+import '../domain/domain.dart';
 import 'widgets/drawer/page/page.dart';
 import 'widgets/movie_item/page/page.dart';
 import 'widgets/navbar/page/page.dart';
