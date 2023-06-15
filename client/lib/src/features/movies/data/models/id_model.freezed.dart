@@ -21,7 +21,7 @@ IdModel _$IdModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$IdModel {
   int get timestamp => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $IdModelCopyWith<$Res> {
   factory $IdModelCopyWith(IdModel value, $Res Function(IdModel) then) =
       _$IdModelCopyWithImpl<$Res, IdModel>;
   @useResult
-  $Res call({int timestamp, DateTime date});
+  $Res call({int timestamp, DateTime data});
 }
 
 /// @nodoc
@@ -50,16 +50,16 @@ class _$IdModelCopyWithImpl<$Res, $Val extends IdModel>
   @override
   $Res call({
     Object? timestamp = null,
-    Object? date = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
       timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as int,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
   }
@@ -72,7 +72,7 @@ abstract class _$$_IdModelCopyWith<$Res> implements $IdModelCopyWith<$Res> {
       __$$_IdModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int timestamp, DateTime date});
+  $Res call({int timestamp, DateTime data});
 }
 
 /// @nodoc
@@ -86,16 +86,16 @@ class __$$_IdModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? timestamp = null,
-    Object? date = null,
+    Object? data = null,
   }) {
     return _then(_$_IdModel(
       timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as int,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -104,7 +104,7 @@ class __$$_IdModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IdModel implements _IdModel {
-  const _$_IdModel({required this.timestamp, required this.date});
+  const _$_IdModel({required this.timestamp, required this.data});
 
   factory _$_IdModel.fromJson(Map<String, dynamic> json) =>
       _$$_IdModelFromJson(json);
@@ -112,11 +112,11 @@ class _$_IdModel implements _IdModel {
   @override
   final int timestamp;
   @override
-  final DateTime date;
+  final DateTime data;
 
   @override
   String toString() {
-    return 'IdModel(timestamp: $timestamp, date: $date)';
+    return 'IdModel(timestamp: $timestamp, data: $data)';
   }
 
   @override
@@ -126,12 +126,12 @@ class _$_IdModel implements _IdModel {
             other is _$_IdModel &&
             (identical(other.timestamp, timestamp) ||
                 other.timestamp == timestamp) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, timestamp, date);
+  int get hashCode => Object.hash(runtimeType, timestamp, data);
 
   @JsonKey(ignore: true)
   @override
@@ -150,14 +150,14 @@ class _$_IdModel implements _IdModel {
 abstract class _IdModel implements IdModel {
   const factory _IdModel(
       {required final int timestamp,
-      required final DateTime date}) = _$_IdModel;
+      required final DateTime data}) = _$_IdModel;
 
   factory _IdModel.fromJson(Map<String, dynamic> json) = _$_IdModel.fromJson;
 
   @override
   int get timestamp;
   @override
-  DateTime get date;
+  DateTime get data;
   @override
   @JsonKey(ignore: true)
   _$$_IdModelCopyWith<_$_IdModel> get copyWith =>

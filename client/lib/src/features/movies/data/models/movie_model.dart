@@ -1,12 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../domain/domain.dart';
 import 'models.dart';
 
 part 'movie_model.freezed.dart';
 part 'movie_model.g.dart';
 
 @freezed
-class MovieModel with _$MovieModel {
+class MovieModel with _$MovieModel implements IMovieEntity {
   const factory MovieModel({
     required final IdModel id,
     required final String imdbId,
