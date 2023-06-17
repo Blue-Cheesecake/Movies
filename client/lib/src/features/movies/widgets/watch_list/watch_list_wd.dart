@@ -4,7 +4,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../data/data.dart';
 import '../drawer/drawer_wd.dart';
-import '../movie_item/movie_item_widget.dart';
+import '../movie_item/movie_item_wd.dart';
 import '../navbar/nav_bar_wd.dart';
 import 'logic/logic.dart';
 

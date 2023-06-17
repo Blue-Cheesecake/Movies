@@ -7,7 +7,7 @@ import '../../../config/theme/theme.dart';
 import 'data/data.dart';
 import 'domain/domain.dart';
 import 'widgets/drawer/drawer_wd.dart';
-import 'widgets/movie_item/movie_item_widget.dart';
+import 'widgets/movie_item/movie_item_wd.dart';
 import 'widgets/navbar/nav_bar_wd.dart';
 
 class HomeView extends StatelessWidget {
