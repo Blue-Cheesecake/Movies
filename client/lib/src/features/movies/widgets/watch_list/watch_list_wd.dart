@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../data/data.dart';
-import '../drawer/drawer_widget.dart';
+import '../drawer/drawer_wd.dart';
 import '../movie_item/movie_item_widget.dart';
-import '../navbar/nav_bar_widget.dart';
+import '../navbar/nav_bar_wd.dart';
 import 'logic/logic.dart';
 
-class WatchListView extends ConsumerWidget {
-  const WatchListView({Key? key}) : super(key: key);
+class WatchListWD extends ConsumerWidget {
+  const WatchListWD({Key? key}) : super(key: key);
   static const String routeName = "/watch-list";
 
   @override
@@ -17,10 +17,10 @@ class WatchListView extends ConsumerWidget {
     final List<MovieModel> watchList = ref.watch(watchListProvider);
 
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer: const DrawerWD(),
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
-        child: NavBarWidget(),
+        child: NavBarWD(),
       ),
       body: ListView.builder(
         shrinkWrap: true,
@@ -36,7 +36,7 @@ class WatchListView extends ConsumerWidget {
                 showCupertinoModalBottomSheet(
                   context: context,
                   builder: (context) {
-                    return MovieItemWidget(movieModel: movie);
+                    return MovieItemWD(movieModel: movie);
                   },
                 );
               },

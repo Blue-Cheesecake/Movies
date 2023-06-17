@@ -1,1 +1,1 @@
-export 'video_player_widget.dart';
+export 'video_player_wd.dart';

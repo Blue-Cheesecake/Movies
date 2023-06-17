@@ -8,8 +8,8 @@ import '../../data/data.dart';
 import '../watch_list/logic/logic.dart';
 import 'widgets/widgets.dart';
 
-class MovieItemWidget extends ConsumerWidget {
-  const MovieItemWidget({Key? key, required this.movieModel}) : super(key: key);
+class MovieItemWD extends ConsumerWidget {
+  const MovieItemWD({Key? key, required this.movieModel}) : super(key: key);
 
   final MovieModel movieModel;
 
@@ -104,7 +104,7 @@ class MovieItemWidget extends ConsumerWidget {
               showCupertinoModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return VideoPlayerWidget(
+                  return VideoPlayerWD(
                     youtubeId: VideoUtil.extractVideoId(movieModel.trailerLink),
                   );
                 },

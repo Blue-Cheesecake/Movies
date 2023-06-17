@@ -6,9 +6,9 @@ import '../../../config/theme/theme.dart';
 
 import 'data/data.dart';
 import 'domain/domain.dart';
-import 'widgets/drawer/drawer_widget.dart';
+import 'widgets/drawer/drawer_wd.dart';
 import 'widgets/movie_item/movie_item_widget.dart';
-import 'widgets/navbar/nav_bar_widget.dart';
+import 'widgets/navbar/nav_bar_wd.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -23,10 +23,10 @@ class HomeView extends StatelessWidget {
     );
 
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer: const DrawerWD(),
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
-        child: NavBarWidget(),
+        child: NavBarWD(),
       ),
       body: Center(
         child: FutureBuilder(
@@ -52,7 +52,7 @@ class HomeView extends StatelessWidget {
                   controller: pageController,
                   itemCount: movieModels.length,
                   itemBuilder: (context, index) {
-                    return MovieItemWidget(movieModel: movieModels[index]);
+                    return MovieItemWD(movieModel: movieModels[index]);
                   },
                 ),
                 Column(

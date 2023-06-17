@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../config/theme/theme.dart';
+import '../../../../../../config/theme/theme.dart';
 
-class NavBarWidget extends StatelessWidget {
-  const NavBarWidget({Key? key}) : super(key: key);
+class NavBarWD extends StatelessWidget {
+  const NavBarWD({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
