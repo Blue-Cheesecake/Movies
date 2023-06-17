@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-import '../../../../data/models/models.dart';
-import '../../drawer/page/page.dart';
-import '../../movie_item/page/page.dart';
-import '../../navbar/page/page.dart';
-import '../logic/logic.dart';
+import '../../data/data.dart';
+import '../drawer/drawer_widget.dart';
+import '../movie_item/movie_item_widget.dart';
+import '../navbar/nav_bar_widget.dart';
+import 'logic/logic.dart';
 
 class WatchListView extends ConsumerWidget {
   const WatchListView({Key? key}) : super(key: key);

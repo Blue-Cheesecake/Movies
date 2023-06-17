@@ -2,13 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../config/theme/theme.dart';
+import '../../../config/theme/theme.dart';
 
-import '../data/data.dart';
-import '../domain/domain.dart';
-import 'widgets/drawer/page/page.dart';
-import 'widgets/movie_item/page/page.dart';
-import 'widgets/navbar/page/page.dart';
+import 'data/data.dart';
+import 'domain/domain.dart';
+import 'widgets/drawer/drawer_widget.dart';
+import 'widgets/movie_item/movie_item_widget.dart';
+import 'widgets/navbar/nav_bar_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

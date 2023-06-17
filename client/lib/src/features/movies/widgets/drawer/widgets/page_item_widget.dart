@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../../../../../config/theme/theme.dart';
-import '../../logic/logic.dart';
+import '../../../../../../../config/theme/theme.dart';
+import '../logic/logic.dart';
 
 class PageItemWidget extends ConsumerWidget {
   const PageItemWidget({Key? key, required this.title, required this.route}) : super(key: key);

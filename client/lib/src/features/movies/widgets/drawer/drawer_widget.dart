@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../config/theme/theme.dart';
-import '../../../page.dart';
-import '../../watch_list/page/page.dart';
+import '../../../../../../config/theme/theme.dart';
+import '../../home_view.dart';
+import '../watch_list/watch_list_view.dart';
 import 'widgets/widgets.dart';
 
 class DrawerWidget extends StatelessWidget {

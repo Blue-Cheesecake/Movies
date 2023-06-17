@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../page.dart';
+import '../../../home_view.dart';
 
 final currentPageProvider = StateNotifierProvider<CurrentPageNotifier, String>((ref) {
   return CurrentPageNotifier();
