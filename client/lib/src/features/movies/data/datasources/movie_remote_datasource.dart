@@ -5,10 +5,22 @@ import '../models/models.dart';
 
 part 'movie_remote_datasource.g.dart';
 
+abstract class MovieDataSource {
+  Future<List<MovieModel>> getMovies();
+}
+
 @RestApi(baseUrl: "http://localhost:8080/api/v1/")
-abstract class MovieRemoteDataSource {
-  factory MovieRemoteDataSource(Dio dio) = _MovieRemoteDataSource;
+abstract class MovieRetrofit {
+  factory MovieRetrofit(Dio dio) = _MovieRemoteDataSource;
 
   @GET("/movies")
   Future<List<MovieModel>> getMovies();
+}
+
+class MovieRetrofitDataSource implements MovieDataSource {
+  @override
+  Future<List<MovieModel>> getMovies() {
+    final response = _MovieRemoteDataSource(Dio()).getMovies();
+    return response;
+  }
 }

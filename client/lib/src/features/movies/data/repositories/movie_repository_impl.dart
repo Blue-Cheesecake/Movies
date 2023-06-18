@@ -3,12 +3,11 @@ import '../datasources/datasources.dart';
 import '../models/models.dart';
 
 class MovieRepository implements IMovieRepository {
-  final MovieRemoteDataSource remoteDataSource;
-
-  MovieRepository({required this.remoteDataSource});
+  final MovieDataSource dataSource;
+  MovieRepository({required this.dataSource});
 
   @override
   Future<List<MovieModel>> fetchAllMovie() {
-    return remoteDataSource.getMovies();
+    return dataSource.getMovies();
   }
 }

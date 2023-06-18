@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -17,9 +16,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GetMovieUseCase getMovieUseCase = GetMovieUseCase(
-      repository: MovieRepository(
-        remoteDataSource: MovieRemoteDataSource(Dio()),
-      ),
+      repository: MovieRepository(),
     );
 
     return Scaffold(
