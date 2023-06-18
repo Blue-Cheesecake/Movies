@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GetMovieUseCase getMovieUseCase = GetMovieUseCase(
-      repository: MovieRepository(),
+      repository: MovieRepository(dataSource: MovieRetrofitDataSource()),
     );
 
     return Scaffold(

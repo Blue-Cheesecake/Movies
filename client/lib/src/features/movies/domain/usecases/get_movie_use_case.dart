@@ -6,7 +6,7 @@ class GetMovieUseCase {
 
   GetMovieUseCase({required IMovieRepository repository}) : _repository = repository;
 
-  Future<List<MovieModel>> getMovies() async {
-    return await _repository.fetchAllMovie();
+  Future<List<MovieModel>> getMovies() {
+    return _repository.fetchAllMovie();
   }
 }
