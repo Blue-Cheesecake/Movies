@@ -11,7 +11,7 @@ abstract class MovieDataSource {
 
 @RestApi(baseUrl: "http://localhost:8080/api/v1/")
 abstract class MovieRetrofit {
-  factory MovieRetrofit(Dio dio) = _MovieRemoteDataSource;
+  factory MovieRetrofit(Dio dio) = _MovieRetrofit;
 
   @GET("/movies")
   Future<List<MovieModel>> getMovies();
@@ -20,7 +20,7 @@ abstract class MovieRetrofit {
 class MovieRetrofitDataSource implements MovieDataSource {
   @override
   Future<List<MovieModel>> getMovies() {
-    final response = _MovieRemoteDataSource(Dio()).getMovies();
+    final response = MovieRetrofit(Dio()).getMovies();
     return response;
   }
 }
