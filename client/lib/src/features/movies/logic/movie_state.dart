@@ -9,6 +9,6 @@ class MovieState with _$MovieState {
   const MovieState._();
 
   factory MovieState.initial() = _MovieStateInitial;
-  factory MovieState.data({required IMovieEntity data}) = _MovieStateData;
+  factory MovieState.data({required List<IMovieEntity> data}) = _MovieStateData;
   factory MovieState.error() = _MovieStateError;
 }

@@ -19,21 +19,21 @@ mixin _$MovieState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(IMovieEntity data) data,
+    required TResult Function(List<IMovieEntity> data) data,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(IMovieEntity data)? data,
+    TResult? Function(List<IMovieEntity> data)? data,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(IMovieEntity data)? data,
+    TResult Function(List<IMovieEntity> data)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$_MovieStateInitial extends _MovieStateInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(IMovieEntity data) data,
+    required TResult Function(List<IMovieEntity> data) data,
     required TResult Function() error,
   }) {
     return initial();
@@ -129,7 +129,7 @@ class _$_MovieStateInitial extends _MovieStateInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(IMovieEntity data)? data,
+    TResult? Function(List<IMovieEntity> data)? data,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -139,7 +139,7 @@ class _$_MovieStateInitial extends _MovieStateInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(IMovieEntity data)? data,
+    TResult Function(List<IMovieEntity> data)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -195,7 +195,7 @@ abstract class _$$_MovieStateDataCopyWith<$Res> {
           _$_MovieStateData value, $Res Function(_$_MovieStateData) then) =
       __$$_MovieStateDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({IMovieEntity data});
+  $Res call({List<IMovieEntity> data});
 }
 
 /// @nodoc
@@ -213,9 +213,9 @@ class __$$_MovieStateDataCopyWithImpl<$Res>
   }) {
     return _then(_$_MovieStateData(
       data: null == data
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as IMovieEntity,
+              as List<IMovieEntity>,
     ));
   }
 }
@@ -223,10 +223,17 @@ class __$$_MovieStateDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MovieStateData extends _MovieStateData {
-  _$_MovieStateData({required this.data}) : super._();
+  _$_MovieStateData({required final List<IMovieEntity> data})
+      : _data = data,
+        super._();
 
+  final List<IMovieEntity> _data;
   @override
-  final IMovieEntity data;
+  List<IMovieEntity> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
 
   @override
   String toString() {
@@ -238,11 +245,12 @@ class _$_MovieStateData extends _MovieStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MovieStateData &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -254,7 +262,7 @@ class _$_MovieStateData extends _MovieStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(IMovieEntity data) data,
+    required TResult Function(List<IMovieEntity> data) data,
     required TResult Function() error,
   }) {
     return data(this.data);
@@ -264,7 +272,7 @@ class _$_MovieStateData extends _MovieStateData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(IMovieEntity data)? data,
+    TResult? Function(List<IMovieEntity> data)? data,
     TResult? Function()? error,
   }) {
     return data?.call(this.data);
@@ -274,7 +282,7 @@ class _$_MovieStateData extends _MovieStateData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(IMovieEntity data)? data,
+    TResult Function(List<IMovieEntity> data)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -320,11 +328,11 @@ class _$_MovieStateData extends _MovieStateData {
 }
 
 abstract class _MovieStateData extends MovieState {
-  factory _MovieStateData({required final IMovieEntity data}) =
+  factory _MovieStateData({required final List<IMovieEntity> data}) =
       _$_MovieStateData;
   _MovieStateData._() : super._();
 
-  IMovieEntity get data;
+  List<IMovieEntity> get data;
   @JsonKey(ignore: true)
   _$$_MovieStateDataCopyWith<_$_MovieStateData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -369,7 +377,7 @@ class _$_MovieStateError extends _MovieStateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(IMovieEntity data) data,
+    required TResult Function(List<IMovieEntity> data) data,
     required TResult Function() error,
   }) {
     return error();
@@ -379,7 +387,7 @@ class _$_MovieStateError extends _MovieStateError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(IMovieEntity data)? data,
+    TResult? Function(List<IMovieEntity> data)? data,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -389,7 +397,7 @@ class _$_MovieStateError extends _MovieStateError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(IMovieEntity data)? data,
+    TResult Function(List<IMovieEntity> data)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) {
